@@ -2,11 +2,22 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
-import zipfile 
+from pathlib import Path
+
+st.set_page_config(
+    page_title="Participation in Education, Training and Employment",
+    layout="wide"
+)
+
+st.title(
+    "Participation in Education, Training and Employment Age 16 to 21"
+)
 
 # Load data
+BASE_DIR = Path(__file__).parent
+
 neet = pd.read_csv(
-    "Data/state_participation_LA_chars_0406.zip",
+    BASE_DIR / "Data" / "state_participation_LA_chars_0406.zip",
     compression="zip"
 )
 
