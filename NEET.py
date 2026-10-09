@@ -2,9 +2,13 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
+import zipfile 
 
 # Load data
-neet = pd.read_csv("Data/state_participation_LA_chars_0406.csv")
+neet = pd.read_csv(
+    "Data/state_participation_LA_chars_0406.zip",
+    compression="zip"
+)
 
 ########## Create Year column ########
 neet["Year"] = neet["time_period"].astype(int)
